@@ -22,8 +22,8 @@
   * weapons
   * language
   * greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
-  * should inherit destroy() from GameObject through CharacterStats
-  * should inherit takeDamage() from CharacterStats
+  * should inherit destroy() from GameObject 
+  * should inherit takeDamage() from GameObject
 */
  
 /*
