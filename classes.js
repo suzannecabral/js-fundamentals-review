@@ -23,6 +23,37 @@ FireType
      - fireAttack which should return the string `${name} just blew a giant fireball.'
 */
 
+class Pokemon {
+    constructor(attrs){
+        this.name = attrs.name
+        this.height = attrs.height
+        this.weight = attrs.weight
+        this.level = attrs.level
+        this.health = 50
+    }
+
+    sleep(){
+        this.health = 100
+    }
+
+    levelUp(){
+        this.level += 1
+    }
+}
+
+class FireType extends Pokemon {
+    constructor(attrs){
+        super(attrs)
+        this.type = 'fire'
+        this.nickname = attrs.nickname
+        this.weaknesses = ['water', 'ground', 'rock']
+    }
+
+    fireAttack(){
+        return `${this.name} just blew a giant fireball.`
+    }
+}
+
 
 
 
@@ -33,13 +64,15 @@ FireType
 //     name: "Charmander",
 //     height: "23in",
 //     weight: "18lbs",
-//     level: 7
+//     level: 7,
+//     nickname: "HotHead"
 // })
 
-// console.log(charmander.fireAttack()) // Hello my name is Severus charmander, I am from Hogwarts
+// console.log(charmander.fireAttack()) // Charmander just blew a giant fireball
 // console.log(charmander.health) // 50
 // console.log(charmander.level) // 7
-// console.log(charmander.sleep()) 
+// charmander.sleep()
 // console.log(charmander.health) // 100
 // console.log(charmander.weaknesses) // ['water', 'ground', 'rock']
+// console.log(charmander.nickname) // Hothead 
 
