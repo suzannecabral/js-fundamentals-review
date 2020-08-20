@@ -3,29 +3,43 @@ We have a school to build here! In this project you will get used to thinking ab
 */
 
 /* 
-Person
- - First we need a Person class. This will be our base-class
- - Person receives name age location all as props
- - Person receives speak as a method.
-    - This method returns a phrase Hello my name is Fred, I am from Bedrock where name and location are the object's own props
+Pokemon
+ - First we need a Pokemon class. This will be our base-class
+ - Pokemon receives name, height, weight, level as props
+ - Every Pokemon should also be initialized with a health attribute set to 50
+ - Pokemon receives sleep as a method.
+    - This method will return the pokemon's health to 100
+- Pokemon receives levelUp as a method.
+    - This method should increase the pokemon's level by 1
 
-Professor
- - Now that we have a Person as our base class, we'll build our Professor class.
- - Professor uses the same attributes that have been set up by Person
- - Professor has the following unique props:
-     - subject what the Professor is good at i.e. 'Kanye West and his impact on modern hip-hop'
-     - catchPhrase i.e. Don't forget the homies
- - Professor has the following methods:
-     - greet returns the Professor's own catch-phrase
+FireType
+ - Now that we have a Pokemon as our base class, we'll build our FireType class.
+ - FireType uses the same attributes that have been set up by Pokemon
+ - FireType has the following unique props:
+     - type property set to 'fire'
+     - nickname property
+     - weaknesses property initialized to an array with the values 'water', 'ground', 'rock'
+ - FireType has the following methods:
+     - fireAttack which should return the string `${name} just blew a giant fireball.'
 */
+
+
 
 
 
 /* Uncomment below to test your code */
 
-// const snape = new Professor("Severus Snape", 32, "Hogwarts", "Potions", "10 points from Gryffindor")
+// const charmander = new FireType({
+//     name: "Charmander",
+//     height: "23in",
+//     weight: "18lbs",
+//     level: 7
+// })
 
-// console.log(snape.speak()) // Hello my name is Severus Snape, I am from Hogwarts
-// console.log(snape.greet()) // "10 points from Gryffindor"
-// console.log(snape.age) // 32
+// console.log(charmander.fireAttack()) // Hello my name is Severus charmander, I am from Hogwarts
+// console.log(charmander.health) // 50
+// console.log(charmander.level) // 7
+// console.log(charmander.sleep()) 
+// console.log(charmander.health) // 100
+// console.log(charmander.weaknesses) // ['water', 'ground', 'rock']
 
