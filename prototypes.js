@@ -17,6 +17,62 @@
   * takeDamage() // prototype method -> returns the string '<object name> took damage.'
 */
 
+// function gameObject(createdAt,name,dimensions,destroy()){
+
+// }
+
+//this way of writing parameters is used more often
+//passed in as object
+
+// const human = GameObject({
+//   name:'', 
+//   createdAt:'',
+//   dimensions:'',
+//   destroy(),
+//   healthPoints,
+//   takeDamage()
+// })
+
+// //PROTOTYPE
+// // attrs - "banana term" = placeholder, you could just call it banana
+// function GameObject(attrs){
+//   this.createdAt = attrs.createdAt,
+//   this.name = attrs.name,
+//   this.dimensions = attrs.dimensions
+//   this.healthPoints = attrs.healthPoints
+// }
+
+// GameObject.prototype.destroy = function(){
+//   return `${this.name} was removed from the game`
+// }
+
+// GameObject.prototype.takeDamage = function(){
+//   return `${this.name} took damage`
+// }
+
+
+
+
+
+//CLASS
+class GameObject {
+  constructor(attrs){
+    this.createdAt = attrs.createdAt,
+    this.name = attrs.name,
+    this.dimensions = attrs.dimensions
+    this.healthPoints = attrs.healthPoints
+  }
+  destroy(){
+    return `${this.name} was removed from the game`
+  }
+  takeDamage(){
+    return `${this.name} took damage`
+  }
+}
+
+
+
+
 /*
   === Humanoid (Having an appearance or character resembling that of a human.) ===
   * team
@@ -26,7 +82,72 @@
   * should inherit destroy() from GameObject 
   * should inherit takeDamage() from GameObject
 */
+
  
+
+
+// //PROTOTYPE
+// //use new to make a new instance of an object
+// function Humanoid(attrs){
+//   //this will have all the gameObject attrs
+//   // use .call
+
+//   GameObject.call(this,attrs)
+//   //!!! THAT IS A COMMA
+
+//   this.team = attrs.team
+//   this.weapons = attrs.weapons
+//   this.language = attrs.language
+// }
+// //new: accesses that object's prototype, not parent
+// // in order for humanoid to have access to gameobject's methods
+
+// Humanoid.prototype = Object.create(GameObject.prototype) 
+
+// //this is how we inherit the methods
+// Humanoid.prototype.greet = function(){
+//   return `${this.name} offers a greeting in ${this.language}`
+// }
+
+
+
+
+
+
+//CLASS
+// extends: replaces the need for the object.create
+// left inherits from right
+class Humanoid extends GameObject{
+  constructor(attrs){
+    // can't have list of this.attrs BEFORE super
+    // must be after if inheriting
+    super(attrs)
+      this.team = attrs.team
+      this.weapons = attrs.weapons
+      this.language = attrs.language
+  }
+
+  greet(){
+      return `${this.name} offers a greeting in ${this.language}`
+  }
+}
+
+//Parent:
+//Class keyword
+//constructor
+//methods go underneath constructor
+
+//children:
+//class keyword
+//extends keyword
+//constructor
+//super
+//methods outside of constructor
+
+
+
+
+
 /*
   * Inheritance chain: GameObject -> Humanoid
   * Instances of Humanoid should have all of the same properties as GameObject.
@@ -34,7 +155,7 @@
 
 // Test you work by un-commenting these 3 objects and the list of console logs below:
 
-/*
+
   const mage = new Humanoid({
     createdAt: new Date(),
     dimensions: {
@@ -92,4 +213,3 @@
   console.log(archer.greet()); // Lilith offers a greeting in Elvish.
   console.log(mage.takeDamage()); // Bruce took damage.
   console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
-*/
